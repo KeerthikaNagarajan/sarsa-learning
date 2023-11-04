@@ -1,12 +1,35 @@
 # SARSA Learning Algorithm
 ## AIM
-Write the experiment AIM.
+To develop a Python program to find the optimal policy for the given RL environment using SARSA-Learning and compare the state values with the Monte Carlo method
 
 ## PROBLEM STATEMENT
-Explain the problem statement.
+The problem statement is a Five stage slippery walk where there are five stages excluding goal and hole.The problem is stochastic thus doesnt allow transition probability of 1 for each action it takes.It changes according to the state and policy.
+
+#### State Space:
+The states include two terminal states: 0-Hole[H] and 6-Goal[G].
+It has five non terminal states includin starting state.
+
+#### Action Space:
+Left:0
+Right:1
+
+#### Transition probability:
+The transition probabilities for the problem statement is:
+50% - The agent moves in intended direction.
+33.33% - The agent stays in the same state.
+16.66% - The agent moves in orthogonal direction.
+
+#### Reward:
+To reach state 7 (Goal) : +1 otherwise : 0
 
 ## SARSA LEARNING ALGORITHM
-Include the steps involved in the SARSA Learning algorithm
+1. Initialize Q-table with zeros, where each row represents a state, and each column represents an action.
+2. Define an epsilon-greedy strategy to select actions: With probability epsilon, choose a random action, otherwise choose the action with the highest Q-value for the current state.
+3. Set up learning rate (alpha) and exploration rate (epsilon) decay schedules for gradually reducing these parameters over episodes.
+4. Loop through a fixed number of episodes (n_episodes), initializing the environment and setting the initial state and action.
+5. In each episode, interact with the environment by taking actions, observing rewards, and transitioning to the next state until the episode terminates.
+6. Update the Q-values using the SARSA update rule, incorporating the observed reward and the estimated future Q-value of the next state-action pair.
+7. Track the Q-values, policy, and other information over episodes and return the final Q-values, state values (V), policy (pi), Q-value history (Q_track), and policy history (pi_track).
 
 ## SARSA LEARNING FUNCTION
 ```python
@@ -46,19 +69,22 @@ def sarsa(env,
 ```
 
 ## OUTPUT:
-Mention the optimal policy, optimal value function , success rate for the optimal policy.
-### optimal policy
-### optimal value function
-### success rate for the optimal policy
+### Optimal Policy
+<img width="587" alt="image" src="https://github.com/KeerthikaNagarajan/sarsa-learning/assets/93427089/80eac07c-62db-48e6-bc52-14fa509710f0">
 
-### Plot comparing the state value functions of Monte Carlo method and SARSA learning.
+### First Visit Monte Carlo Method:
+<img width="527" alt="image" src="https://github.com/KeerthikaNagarajan/sarsa-learning/assets/93427089/6e59a2ef-27b9-49d0-bb7f-783b8a63d24e">
+
+### SARSA Learning Algorithm:
+<img width="538" alt="image" src="https://github.com/KeerthikaNagarajan/sarsa-learning/assets/93427089/daa75635-6a8e-43a8-84a7-da23b6a2891c">
+
+### Plot comparing the state value functions of Monte Carlo method and SARSA learning:
 #### State value functions of Monte Carlo method
-<img width="651" alt="image" src="https://github.com/KeerthikaNagarajan/sarsa-learning/assets/93427089/2c7a4d94-cf18-4d40-b574-4ba505053c1f">
+<img width="648" alt="image" src="https://github.com/KeerthikaNagarajan/sarsa-learning/assets/93427089/b144affa-d0b7-4378-b908-2a13c49cbcb5">
 
 #### State value functions of SARSA learning
-<img width="650" alt="image" src="https://github.com/KeerthikaNagarajan/sarsa-learning/assets/93427089/d4728587-5e1b-413f-a3ab-4b4ca3c24f4d">
-
+<img width="650" alt="image" src="https://github.com/KeerthikaNagarajan/sarsa-learning/assets/93427089/ab73465e-9a76-43ad-98bb-7fb35341c2a0">
 
 ## RESULT:
+Thus, the implementation of SARSA learning algorithm was implemented successfully.
 
-Write your result here
